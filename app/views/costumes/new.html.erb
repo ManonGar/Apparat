@@ -1,2 +1,13 @@
-<h1>Costumes#new</h1>
-<p>Find me in app/views/costumes/new.html.erb</p>
+<div class="container">
+
+<h3>Ajouter un nouveau costume</h3>
+
+<%= simple_form_for(@costume) do |f| %>
+  <%= f.input :name, label: 'Nom du costume'%>
+  <%= f.input :description, as: :text %>
+  <%= f.input :year, label: 'Année représentée'%>
+  <%= f.input :price, label: 'Prix de location'%>
+  <%= f.submit %>
+<% end %>
+
+</div>
