@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
+
+Costume.destroy_all
+
+url = 'https://www.costumesdepoque.net/catalogue-costumes-civils?page=2'
+url_opening = open(url).read
+user = JSON.parse(url_opening)
+
+
