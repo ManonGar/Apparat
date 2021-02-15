@@ -4,7 +4,7 @@ class CostumesController < ApplicationController
   end
 
   def show
-    @costume = Costume.find(params[:id])
+    @costume = Costume.find(params[:costume])
   end
 
   def new
