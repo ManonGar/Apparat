@@ -3,16 +3,16 @@ class CostumesController < ApplicationController
     @costumes = Costume.all
   end
 
-  def show
-    @costume = Costume.find(params[:costume])
-  end
-
   def new
     @costume = Costume.new
   end
 
+  def show
+    @costume = Costume.find(params[:id])
+  end
+
   def create
-    @costume = Costume.new(costume_params[:id])
+    @costume = Costume.new(costume_params)
     if @costume.save
       redirect_to costume_path(@costume)
     else
