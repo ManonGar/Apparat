@@ -14,6 +14,7 @@ class CostumesController < ApplicationController
   end
 
   def edit
+    @booking = Booking.new
   end
 
   def create
