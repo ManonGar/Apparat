@@ -1,1 +1,39 @@
 // Specific CSS for your home-page
+
+.input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
+  position: relative;
+  flex: 0.4;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+#carouselExampleSlidesOnly {
+  z-index: -99;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.input-group.rounded {
+  justify-content: center;
+}
+
+.titre-search p {
+  text-align: center;
+}
+
+.titre-search {
+  margin-top: 30vh;
+}
+
+.carousel-inner {
+  height: 70vh;
+}
+
+.card-container {
+  margin-top: 250px;
+  padding: 20px;
+}
+
+
