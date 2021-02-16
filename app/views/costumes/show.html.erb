@@ -1,51 +1,61 @@
 <div class="container">
-  <div>
-    <h1><%= @costume.name %></h1>
-    <p><%= @costume.description %></p>
+  <div id="main-card">
+    <div class="description">
+      <h1><%= @costume.name %></h1>
+      <p><%= @costume.description %></p>
+      <p><%= @costume.price %></p>
+    </div>
+    <div class="edit">
+      <li class="nav-item dropdown">
+        <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <ul>
+            <li class="dropdown-item"><%= link_to "Mettre à jour", edit_costume_path(@costume), class: "text-decoration-none"%></li>
+            <li class="dropdown-item"><%= link_to "Effacer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}%></li>
+          </ul>
+        </div>
+      </li>
+    </div>
   </div>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="..." alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="..." alt="Third slide">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-  </div>
-  <div>
-    <p><%= @costume.price %></p>
-    <%= link_to "Réservé", "#", class: "btn btn-ghost" %>
-    <%= link_to "mettre à jour", edit_costume_path(@costume), class: "btn btn-ghost" %>
-    <%= link_to "Effacer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}, class: "btn btn-ghost" %>
-  </div>
-
-  <div class="container">
-    <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-      <h3> Réservations </h3>
-
-         <%= simple_form_for [@costume, @booking] do |f| %>
-          <%= f.input :beginning_date, label: 'Date de début', as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :ending_date, label: 'Date de fin', as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, "Réserver", class: "btn btn-ghost" %>
-        <% end %>
-
-    </div>
-  </div>
-
-  <div>
-    <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %>
-  </div>
-
 </div>
+
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h3> Réservations </h3>
+     <%= simple_form_for [@costume, @booking] do |f| %>
+        <%= f.input :beginning_date, label: 'Date de début', as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :ending_date, label: 'Date de fin', as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.button :submit, "Réserver", class: "btn btn-ghost" %>
+     <% end %>
+  </div>
+</div>
+
+<hr>
+<div>
+  <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %>
+</div>
+
+

@@ -1,0 +1,17 @@
+li.nav-item.dropdown {
+  list-style: none!important;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.fa-pencil-alt:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu a {
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+}
