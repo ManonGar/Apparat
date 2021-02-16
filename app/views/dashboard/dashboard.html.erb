@@ -1,12 +1,44 @@
-<h1>dashboard</h1>
+<div class="container">
+  <h1> Mes costumes</h1>
+  <%= link_to "Create a costume", new_costume_path %>
 
- <div class="container">
-    <div class="cards">
-      <% current_user.costumes.each do |costume| %>
-        <%= link_to "#" do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-              <%= costume.name%>
-          </div>
+  <div class="container">
+      <div class="cards">
+        <% current_user.costumes.each do |costume| %>
+          <%= link_to '#' do %>
+            <% if costume.photo.attached? %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photo.key%>')">
+                <%= costume.name%>
+                <%= costume.photo%>
+            </div>
+              <% else %>
+            <div>
+             <%= costume.name%>
+            </div>
+          <% end %>
+            <% end %>
         <% end %>
-      <% end %>
+      </div>
+  </div>
+
+  <div class="container">
+
+  <% current_user.bookings.each do |booking| %>
+    <div class="notification">
+      <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg", class: "avatar-large"%>
+      <div class="notification-content">
+        <p><small>user.name</small></p>
+        <p>user.name aimerait louer votre costume du booking.beginning_date au booking.ending_date.</p>
+        <p>Souhaitez-vous accepter ou refuser sa demande?</p>
+      </div>
+
+      <div class="notification-actions">
+        <%= link_to "✔️", "#", class: "btn btn-ghost" %> 
+        <%= link_to "❌", '#', method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
+      </div>
     </div>
+
+    <% end %>
+  </div>
+
+</div>
