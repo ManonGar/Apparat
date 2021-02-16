@@ -2,7 +2,7 @@
   color: #E0C36D;
   border: 1px solid #E0C36D;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 30px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -10,4 +10,5 @@
 
 .btn-ghost:hover {
   opacity: 1;
+  color: #b59e5b;
 }
