@@ -24,6 +24,11 @@
     <span class="sr-only">Next</span>
   </a>
   </div>
+  
+  <% @costume.photos.each do |photo| %>
+    <%= cl_image_tag photo.key %>
+  <% end%>
+
   <div>
     <p><%= @costume.price %></p>
     <%= link_to "Réservé", "#", class: "btn btn-ghost" %>
