@@ -26,6 +26,7 @@
           <% else %>
             <%= link_to "Mes costumes", costumes_path, class: "dropdown-item" %>
             <%= link_to "Mes réservations", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Mon espace", dashboard_path, class: "dropdown-item" %>
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% end %>
         </div>
