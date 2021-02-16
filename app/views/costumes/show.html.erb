@@ -1,8 +1,7 @@
 <div class="container">
   <div>
-    <h1>Les grandes tendances de la mode des années 1780</h1>
-    <h2>Roba MArie-Antoinette</h2>
-    <p>Robe de Cour composée d'une robe et d'une jupe portées sur des paniers.</p>
+    <h1><%= @costume.name %></h1>
+    <p><%= @costume.description %></p>
   </div>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -26,7 +25,7 @@
   </a>
   </div>
   <div>
-    <p>Location à la semaine : 170,00 €</p>
+    <p><%= @costume.price %></p>
     <%= link_to "Réservé", "#", class: "btn btn-ghost" %>
     <%= link_to "mettre à jour", edit_costume_path(@costume), class: "btn btn-ghost" %>
     <%= link_to "Effacer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}, class: "btn btn-ghost" %>
@@ -46,7 +45,7 @@
   </div>
 
   <div>
-    <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %> 
+    <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %>
   </div>
-   
+
 </div>
