@@ -28,5 +28,7 @@
   <div>
     <p>Location à la semaine : 170,00 €</p>
     <%= link_to "Réservé", "#", class: "btn btn-ghost" %>
+    <%= link_to "mettre à jour", edit_costume_path(@costume), class: "btn btn-ghost" %>
+    <%= link_to "Effacer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}, class: "btn btn-ghost" %>
   </div>
 </div>
