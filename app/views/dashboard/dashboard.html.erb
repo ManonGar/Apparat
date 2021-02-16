@@ -1,13 +1,12 @@
 <div class="container">
   <h1> Mes costumes</h1>
-  <%= link_to "Create a costume", new_costume_path %>
 
   <div class="container">
       <div class="cards">
         <% current_user.costumes.each do |costume| %>
-          <%= link_to '#' do %>
-            <% if costume.photo.attached? %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photo.key%>')">
+          <%= link_to costume_path(costume) do %>
+            <% if costume.photos.attached? %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#=cl_image_path costume.photos.keys%>')">
                 <%= costume.name%>
             </div>
               <% else %>
@@ -33,8 +32,8 @@
       </div>
 
       <div class="notification-actions">
-        <%= link_to "✔️", "#", class: "btn btn-ghost" %> 
-        <%= link_to "❌", '#', method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
+        <%= link_to "✔️", new_costume_booking_path, class: "btn btn-ghost" %> 
+        <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
       </div>
     </div>
 

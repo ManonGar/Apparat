@@ -9,13 +9,14 @@ require 'open-uri'
 require 'nokogiri'
 require 'faker'
 
+Booking.destroy_all 
+puts 'Destroying bookings'
+
 Costume.destroy_all
 puts 'Destroying costumes'
-sleep(1)
 
 User.destroy_all
 puts 'Destroying users'
-sleep(1)
 
 @user1 = User.create(email: 'manon@gmail.com', password: '123456')
 @user2 = User.create(email: 'laure@gmail.com', password: '123456')
@@ -23,14 +24,14 @@ sleep(1)
 url = 'https://www.costumesdepoque.net/catalogue-costumes-civils'
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
-puts 'Creating costume'
+puts 'Creating costumes'
 html_doc.css('#TPASection_jsrook8y > div > div > div > div > section > div > ul > li').first(10).each do |element|
   costume = Costume.new(
-    name: Faker::Coffee.blend_name,
+    name: Faker::Music::Opera.bizet,
     description: element.search('._3RqKm > h3').text,
     price: element.search('._23ArP').text.to_i)
   file = URI.open(element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i])
-  costume.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  costume.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     # photo: element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i])
   # puts element.search('._23ArP').text.to_i
   # puts element.search('._3RqKm > h3').text
