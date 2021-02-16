@@ -1,4 +1,5 @@
 class CostumesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_costume, only: [:show, :update, :destroy, :edit]
 
   def index
@@ -11,6 +12,7 @@ class CostumesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit
@@ -19,11 +21,12 @@ class CostumesController < ApplicationController
 
   def create
     @costume = Costume.new(costume_params)
+    @costume.user = current_user
     authorize @costume
     if @costume.save
       redirect_to costume_path(@costume)
     else
-      render :show
+      render :new
     end
   end
 
