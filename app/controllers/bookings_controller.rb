@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     @costume = Costume.find(params[:costume_id])
     @booking = Booking.new(booking_params)
     @booking.costume = @costume
+    authorize @booking
     if @booking.save
       redirect_to costume_path(@costume)
     else

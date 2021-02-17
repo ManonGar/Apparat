@@ -5,8 +5,8 @@
     <div class="cards">
       <% @costumes.each do |costume| %>
         <%= link_to costume_path(costume) do %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-              <%= costume.name%>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photos.first.key%>')">
+                <%=costume.name%>
           </div>
         <% end %>
       <% end %>

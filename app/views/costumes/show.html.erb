@@ -21,12 +21,12 @@
       <h1><%= @costume.name %></h1>
       <p><%= @costume.description %></p>
       <p><%= @costume.price %></p>
+      <p> <% @costume.photos.each do |photo| %>
+          <%= cl_image_tag photo.key %>
+          <% end%>
+      </p>
     </div>
   </div>
-
-  <% @costume.photos.each do |photo| %>
-    <%= cl_image_tag photo.key %>
-  <% end%>
 
     <div class="container">
       <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
