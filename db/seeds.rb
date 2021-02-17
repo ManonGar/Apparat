@@ -9,7 +9,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'faker'
 
-Booking.destroy_all 
+Booking.destroy_all
 puts 'Destroying bookings'
 
 Costume.destroy_all
@@ -30,8 +30,9 @@ html_doc.css('#TPASection_jsrook8y > div > div > div > div > section > div > ul 
     name: Faker::Music::Opera.bizet,
     description: element.search('._3RqKm > h3').text,
     price: element.search('._23ArP').text.to_i)
-  file = URI.open(element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i])
+  file = URI.open(element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg\/))/i].delete_suffix('/'))
   costume.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    p file
     # photo: element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i])
   # puts element.search('._23ArP').text.to_i
   # puts element.search('._3RqKm > h3').text
