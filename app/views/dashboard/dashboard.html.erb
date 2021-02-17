@@ -6,8 +6,8 @@
         <% current_user.costumes.each do |costume| %>
           <%= link_to costume_path(costume) do %>
             <% if costume.photos.attached? %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#=cl_image_path costume.photos.keys%>')">
-                <%= costume.name%>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photos.first.key%>')">
+                <%=costume.name%>
             </div>
               <% else %>
             <div>
@@ -20,24 +20,25 @@
       </div>
   </div>
 
-  <div class="container">
+
+ <%#  <div class="container">
 
   <% current_user.bookings.each do |booking| %>
-    <div class="notification">
+    <%# <div class="notification">
       <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg", class: "avatar-large"%>
-      <div class="notification-content">
-        <p><small>user.name</small></p>
-        <p>user.name aimerait louer votre costume du booking.beginning_date au booking.ending_date.</p>
+      <%# <div class="notification-content">
+        <p> <%# <small>user.name</small> %> </p>
+        <%# <p>user.name aimerait louer votre costume du booking.beginning_date au booking.ending_date.</p>
         <p>Souhaitez-vous accepter ou refuser sa demande?</p>
-      </div>
+    </div>  %>
 
-      <div class="notification-actions">
+      <%# <div class="notification-actions">
         <%= link_to "✔️", new_costume_booking_path, class: "btn btn-ghost" %> 
-        <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
-      </div>
-    </div>
+      <%#   <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
+      <%# </div>
+    </div> %>
 
-    <% end %>
+    <%# end %>
   </div>
 
 </div>
