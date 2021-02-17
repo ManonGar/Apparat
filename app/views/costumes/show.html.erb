@@ -34,8 +34,15 @@
         <%= simple_form_for [@costume, @booking] do |f| %>
             <%= f.input :beginning_date, label: 'Date de début', as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.input :ending_date, label: 'Date de fin', as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.button :submit, "Réserver", class: "btn btn-ghost" %>
-        <% end %>
+            <%= f.button :submit, "Réserver", class: "btn btn-ghost" do %>
+              <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+              <span><strong>Yay!</strong> 🎉 you successfully signed in to our service.</span>
+              <a data-dismiss="alert" aria-label="Close">
+              <i class="fas fa-times"></i>
+              </a>
+              </div>
+            <% end %>
+            <% end %>
       </div>
     </div>
 
@@ -44,5 +51,4 @@
       <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %>
     </div>
 
- </div
 </div>
