@@ -7,7 +7,10 @@
           <%= link_to costume_path(costume) do %>
             <% if costume.photos.attached? %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%#=cl_image_path costume.photos.keys%>')">
-                <%= costume.name%>
+                <%=costume.name%>
+                <% costume.photos.each do |photo| %>
+                <%= cl_image_tag photo.key %>
+                <% end%>
             </div>
               <% else %>
             <div>
@@ -19,6 +22,7 @@
         <% end %>
       </div>
   </div>
+
 
   <div class="container">
 
