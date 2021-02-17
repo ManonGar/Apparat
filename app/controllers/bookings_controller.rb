@@ -4,28 +4,32 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @costume = Costume.find(params[:costume_id])
-    @booking = Booking.new(booking_params)
-    @booking.costume = @costume
-    authorize @booking
-    if @booking.save
-      redirect_to costume_path(@costume)
+    if current_user == current_user
+      @costume = Costume.find(params[:costume_id])
+      @booking = Booking.new(booking_params)
+      @booking.costume = @costume
+      @booking.user = current_user
+      authorize @booking
+      if @booking.save
+        flash[:alert] = "Bravo vous venez de réserver un costume"
+        redirect_to costume_path(@costume)
+      else
+        render "/costumes/show"
+      end
     else
       render "/costumes/show"
     end
   end
 
   def destroy
-    @costume = Costume.find(params[:costume_id])
     @booking = Booking.find(params[:id])
-    @booking.costume = @costume
     @booking.destroy
-    redirect_to costume_path(@costume)
+    redirect_to dashboard_path
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:beginning_date, :ending_date, :user_id, :costume_id)
+    params.require(:booking).permit(:beginning_date, :ending_date, :costume_id)
   end
 end
