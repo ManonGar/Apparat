@@ -18,11 +18,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @costume = Costume.find(params[:costume_id])
     @booking = Booking.find(params[:id])
-    @booking.costume = @costume
     @booking.destroy
-    redirect_to costume_path(@costume)
+    redirect_to dashboard_path
   end
 
   private
