@@ -7,8 +7,10 @@ class BookingsController < ApplicationController
     @costume = Costume.find(params[:costume_id])
     @booking = Booking.new(booking_params)
     @booking.costume = @costume
+    @booking.user = current_user
     authorize @booking
     if @booking.save
+      flash[:alert] = "Bravo vous venez de réserver un costume"
       redirect_to costume_path(@costume)
     else
       render "/costumes/show"
@@ -26,6 +28,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:beginning_date, :ending_date, :user_id, :costume_id)
+    params.require(:booking).permit(:beginning_date, :ending_date, :costume_id)
   end
 end
