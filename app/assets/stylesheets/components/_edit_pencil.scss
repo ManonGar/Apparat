@@ -1,5 +1,7 @@
 li.nav-item.dropdown {
   list-style: none!important;
+  position: absolute;
+  right: 40px;
 }
 
 .dropdown-toggle::after {
@@ -13,5 +15,7 @@ li.nav-item.dropdown {
 .dropdown-menu a {
     color: black;
     text-decoration: none;
-    background-color: transparent;
+    font-family: 'Cormorant Garamond';
 }
+
+

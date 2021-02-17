@@ -1,35 +1,32 @@
 <div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-
+  <div class="card-trip">
     <% if @costume.user = current_user %>
-      <div class="edit">
-            <li class="nav-item dropdown">
-              <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-pencil-alt"></i>
-              </div>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <ul>
-                  <li class="dropdown-item"><%= link_to "Mettre à jour", edit_costume_path(@costume), class: "text-decoration-none"%></li>
-                  <li class="dropdown-item"><%= link_to "Effacer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}%></li>
-                </ul>
-              </div>
-            </li>
-          </div>
-        </div>
-    <% end %>
-
-
-  <div id="main-card">
-    <div class="description">
-      <h1><%= @costume.name %></h1>
-      <p><%= @costume.description %></p>
-      <p><%= @costume.price %></p>
-      <p> <% @costume.photos.each do |photo| %>
-          <%= cl_image_tag photo.key %>
-          <% end%>
-      </p>
+        <div class="edit">
+              <li class="nav-item dropdown">
+                <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-pencil-alt"></i>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <ul>
+                    <li class="dropdown-item"><%= link_to "Modifier", edit_costume_path(@costume), class: "text-decoration-none"%></li>
+                    <li class="dropdown-item"><%= link_to "Supprimer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}%></li>
+                  </ul>
+                </div>
+              </li>
+            </div>
+      <% end %>
+    <% @costume.photos.each do |photo| %>
+      <%= cl_image_tag photo.key %>
+    <% end%>
+    <div class="card-trip-infos">
+      <div>
+        <h1><%= @costume.name %></h1>
+        <p><%= @costume.description %></p>
+      </div>
+      <h2 class="card-trip-pricing"><p><%= @costume.price %></p><p>€</p></h2>
     </div>
   </div>
+
 
     <div class="container">
       <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
@@ -40,12 +37,11 @@
             <%= f.button :submit, "Réserver", class: "btn btn-ghost"%>
             <% end %>
       </div>
-    </div>
 
-    <hr>
-    <div>
-      <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %>
-    </div>
-
+      <hr>
+      <div>
+        <%= link_to "Retour aux costumes", costumes_path, class: "btn btn-ghost" %>
+      </div>
+  </div>
 
 </div>
