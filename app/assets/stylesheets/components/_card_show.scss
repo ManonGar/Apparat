@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -13,20 +13,31 @@
   object-fit: cover;
 }
 
-.card-trip h2 {
-  font-size: 16px;
+.card-trip h1 {
+  font-size: 40px;
   font-weight: bold;
   margin: 0;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin: 0;
+  color: black;
+  font-weight: 600;
+}
+
+#price {
+  background: $gold;
+  border-radius: 20px;
+  padding: 7px 12px;
+  text-align: center;
 }
 
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
