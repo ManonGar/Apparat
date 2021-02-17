@@ -1,14 +1,28 @@
 .btn-ghost {
-  color: #E0C36D;
-  border: 1px solid #E0C36D;
+  color: black;
+  border: 1.5px solid #E0C36D;
   padding: 8px 24px;
-  border-radius: 30px;
-  font-weight: lighter;
+  font-weight: bold;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
 .btn-ghost:hover {
-  opacity: 1;
-  color: #b59e5b;
+  color: white;
+  background: #E0C36D;
+}
+
+.btn.btn-flat.carousel_link {
+  font-family: "Open Sans";
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: white;
+  border: 1px solid #E0C36D;
+  padding: 8px 24px;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover.carousel_link {
+  background: #E0C36D;
+  color: white;
 }

@@ -1,14 +1,14 @@
 <div class="container">
+  <div class="container-new">
+    <h3>Ajouter un nouveau costume</h3>
 
-<h3>Ajouter un nouveau costume</h3>
-
-<%= simple_form_for(@costume) do |f| %>
-  <%= f.input :name, label: 'Nom du costume'%>
-  <%= f.input :description, as: :text %>
-  <%= f.input :year, label: 'Année représentée'%>
-  <%= f.input :price, label: 'Prix de location'%>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
-
+    <%= simple_form_for(@costume) do |f| %>
+      <%= f.input :name, label: 'Nom du costume'%>
+      <%= f.input :description, as: :text %>
+      <%= f.input :year, label: 'Année représentée'%>
+      <%= f.input :price, label: 'Prix de location'%>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>

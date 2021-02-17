@@ -1,4 +1,15 @@
 // Specific CSS for your home-page
+.container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn.btn-flat {
+  margin: 0;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+}
 
 .input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file {
   position: relative;
@@ -28,12 +39,32 @@
 }
 
 .carousel-inner {
-  height: 70vh;
+  height: 60vh;
 }
 
-.card-container {
-  margin-top: 250px;
-  padding: 20px;
+.wrap {
+  height: 60vh;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+p {
+  font-family: "Cormorant Garamond";
+  font-size: 28px;
+  color: white;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
 
