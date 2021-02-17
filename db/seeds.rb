@@ -20,8 +20,9 @@ puts 'Destroying users'
 
 @user1 = User.create(email: 'manon@gmail.com', password: '123456')
 @user2 = User.create(email: 'laure@gmail.com', password: '123456')
+@user3 = User.create(email: 'sami@gmail.com', password: '123456')
 
-url = 'https://www.costumesdepoque.net/catalogue-costumes-civils'
+=begin url = 'https://www.costumesdepoque.net/catalogue-costumes-civils'
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
 puts 'Creating costumes'
@@ -38,17 +39,31 @@ html_doc.css('#TPASection_jsrook8y > div > div > div > div > section > div > ul 
   # p element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i]
   costume.user = @user1
   costume.save
+end 
+=end
+
+url = 'https://www.compagnie-du-costume.com/costumes/renaissance-xviie-siecle/'
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+puts 'Creating costumes'
+html_doc.search('.rollover-zoom').each do |element|
+  puts element.attribute('href').value
 end
+
+
+=begin 
 puts "#{Costume.all.length} costumes created"
 
 puts 'Creating bookings'
 
 Costume.all.first(5).each do |costume|
   begindate = Faker::Date.forward(days: 23)
-  booking = Booking.create(beginning_date: begindate, ending_date: begindate + rand(3..7), user_id: @user2.id, costume_id: costume.id)
+  booking = Booking.create(beginning_date: begindate, ending_date: begindate + rand(3..7), user_id: @user1.id, costume_id: costume.id)
 end
 
-puts "#{Booking.all.length} bookings created"
+puts "#{Booking.all.length} bookings created" 
+
+=end
 
 # file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 # article = Article.new(title: 'NES', body: "A great console")
