@@ -2,11 +2,11 @@
   <div class="card-trip">
     <% if @costume.user = current_user %>
         <div class="edit">
-              <li class="nav-item dropdown">
-                <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li class="pencil-item dropdown">
+                <div class="pencil dropdown-toggle" id="penilDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-pencil-alt"></i>
                 </div>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pencilDropdown">
                   <ul>
                     <li class="dropdown-item"><%= link_to "Modifier", edit_costume_path(@costume), class: "text-decoration-none"%></li>
                     <li class="dropdown-item"><%= link_to "Supprimer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}%></li>
