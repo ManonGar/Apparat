@@ -1,7 +1,26 @@
 <div class="container">
-  
-  <h1>Bienvenue <%=current_user.email%>!</h1>
 
+  <h3> Bienvenue <%= current_user.email %> 👋</h3>
+  <p>N'hésites surtout pas à naviguer sur les différents onglets ci-dessous</p>
+  <ol>
+    <li><strong>Mes costumes:</strong> l'ensemble des costumes que tu as pu mettre en location sur Apparat</li>
+    <li><strong>Mes réservations confirmés:</strong> l'ensemble des costumes que tu as confirmé pour une location à venir</li>
+    <li><strong>A confirmer:</strong> les costumes en attente de validation (dépêche toi avant que ton loueur ne change d'avis) </li>
+  </ol>
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mes costumes 👔</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mes réservations confirmées ✓</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">A confirmer 👀</a>
+        </li>
+      </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="container">
           <div class="cards">
             <% current_user.costumes.each do |costume| %>
@@ -21,7 +40,14 @@
           </div>
       </div>
 
-  <%= render 'shared/notifications' %>
- 
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <%= render 'shared/notifications' %>
+    
+
+          </div>
+      </div>
 </div>
