@@ -3,8 +3,6 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 .card-trip > img {
@@ -38,7 +36,5 @@
 
 .card-trip .card-trip-infos {
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+
 }
