@@ -1,30 +1,34 @@
 <div class="container">
-  <% current_user.bookings.each do |booking| %>
-    <% if booking.validation %>
-      <div class="notification">
-        <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg", class: "avatar-large"%>
-        <%= booking.costume.user.email %> 
-        <div class="notification-content">
-          <p> <%= booking.costume.user.email %> Réservation de votre costume <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
-          </p>
-        </div> 
 
-    <% else %>
-      <div class="notification">
-        <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg", class: "avatar-large"%>
-        <div class="notification-content">
-          <p> <small> <%= booking.costume.user.email %> </small></p>
-          <p> <%= booking.costume.user.email %> aimerait louer votre <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
-          </p>
-          <p>Souhaitez-vous accepter ou refuser sa demande?</p>
+    <% current_user.bookings.each do |booking| %>
+      <% if booking.validation %>
+          <div class="notification">
+            <%= booking.costume.user.photos.first.key%>
+            <%= booking.costume.user.first_name %> 
+          </div>
+          <div class="notification-content">
+            <p> <%= booking.costume.user.first_name %> a réservé votre costume <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
+            </p>
           </div> 
-        <div class="notification-actions">
-          <%= link_to "✔️", edit_booking_path(booking), class: "btn btn-ghost" %> 
-          <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
-        </div>
-      </div>
-
-    <% end %>
+      <% end %>
+    <% end %> 
+  
+    <% current_user.bookings.each do |booking| %>
+      <% if booking.validation == false %>
+          <div class="notification">
+            <%= booking.costume.user.photos.first.key%>
+            <div class="notification-content">
+              <p> <small> <%= booking.costume.user.first_name %> </small></p>
+              <p> <%= booking.costume.user.first_name %> aimerait louer votre <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
+              </p>
+              <p>Souhaitez-vous accepter ou refuser sa demande?</p>
+              </div> 
+            <div class="notification-actions">
+              <%= link_to "✔️", edit_booking_path(booking), class: "btn btn-ghost" %> 
+              <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
+            </div>
+          </div>
+     <% end %>
   <% end %>
 
 </div>
