@@ -31,7 +31,7 @@ class CostumesController < ApplicationController
   end
 
   def update
-    if @costume.update(costumes_params)
+    if @costume.update(costume_params)
       redirect_to costume_path(@costume), notice: "Costume was updated successfully!"
     else
       render :show

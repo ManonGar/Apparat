@@ -2,7 +2,7 @@ require 'open-uri'
 require 'nokogiri'
 require 'faker'
 
-Booking.destroy_all 
+Booking.destroy_all
 puts 'Destroying bookings'
 
 Costume.destroy_all

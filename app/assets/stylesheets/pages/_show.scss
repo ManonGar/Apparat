@@ -1,1 +1,19 @@
+.simple_form.new_booking {
+  text-align: left;
+  margin-bottom: 50px;
+  font-family: "Open Sans";
+  font-size: 16px;
+}
 
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+h3 {
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+}
