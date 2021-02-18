@@ -1,15 +1,14 @@
 .btn-ghost {
-  color: black;
-  border: 1.5px solid #E0C36D;
+  color: white;
   padding: 8px 24px;
   font-weight: bold;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  background: $gold;
+  transition: background 0.3s ease;
 }
 
 .btn-ghost:hover {
   color: white;
-  background: #E0C36D;
+  background: black;
 }
 
 .btn.btn-flat.carousel_link {
@@ -25,4 +24,12 @@
 .btn-flat:hover.carousel_link {
   background: #E0C36D;
   color: white;
+}
+
+.special_arrow::before {
+  content: '← ';
+}
+
+.special_arrow:hover::before {
+  margin-right: 8px;
 }
