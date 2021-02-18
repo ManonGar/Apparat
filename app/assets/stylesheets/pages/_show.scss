@@ -1,6 +1,5 @@
 .simple_form.new_booking {
   text-align: left;
-  margin-bottom: 50px;
   font-family: "Open Sans";
   font-size: 16px;
 }
@@ -16,4 +15,17 @@ h3 {
   font-weight: bold;
   text-align: center;
   padding: 15px;
+}
+
+.show-page {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 80px;
+  margin-top: 50px;
+}
+
+.booking {
+  border: 1px solid lightgrey;
+  padding-left: 32px;
+  padding-right: 32px;
 }
