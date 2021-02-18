@@ -1,4 +1,19 @@
-.card-trip {
+
+.card-show {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 2px;
+    margin-right: 50px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+
+/*.card-trip {
   position: relative;
   overflow: hidden;
   background: white;
@@ -38,5 +53,6 @@
 .card-trip .card-trip-infos {
   padding: 20px;
 }
+*/
 
 
