@@ -1,81 +1,9 @@
-// .card-trip {
-//   position: relative;
-//   overflow: hidden;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-// }
-
-// .card-trip > img {
-//   height: 200px;
-//   width: 100%;
-//   object-fit: cover;
-// }
-
-// .card-trip h1 {
-//   font-size: 40px;
-//   font-weight: bold;
-//   margin: 0;
-//   text-align: left;
-//   margin-bottom: 10px;
-// }
-
-// .card-trip p {
-//   font-size: 16px;
-//   opacity: .7;
-//   margin: 0;
-//   color: black;
-//   font-weight: 600;
-// }
-
-// #price {
-//   background: $gold;
-//   border-radius: 20px;
-//   padding: 7px 12px;
-//   text-align: center;
-// }
-
-// .card-trip .card-trip-infos {
-//   padding: 20px;
-
-// }
-
-//--------------------------------//
-
-
 .card-trip {
+  position: relative;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 102%;
-}
-
-.card-trip h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  text-align: left;
-  margin-bottom: 8px;
-}
-
-.card-trip h3 {
-  font-family: "Cormorant Garamond";
-  font-size: 20px;
-  font-weight: 600;
-  color: black;
-  text-align: left;
-  margin: 0px;
-  padding: 0px;
-}
-
-.card-trip p {
-  font-size: 16px;
-  text-align: left;
-  color: black;
-  font-family: "Open Sans";
-  font-weight: 600;
-  margin-bottom: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-right: 50px;
 }
 
 .card-trip > img {
@@ -84,19 +12,31 @@
   object-fit: cover;
 }
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding-left: 20px;
-  padding-right: 4px;
-  padding-top: 16px;
+.card-trip h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
+.card-trip p {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+  color: black;
+  font-weight: 600;
 }
+
+#price {
+  background: $gold;
+  border-radius: 20px;
+  padding: 7px 12px;
+  text-align: center;
+}
+
+.card-trip .card-trip-infos {
+  padding: 20px;
+}
+
+
