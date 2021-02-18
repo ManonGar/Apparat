@@ -1,29 +1,28 @@
 <div class="container">
   <div class="show-page">
-
-    <div class="card-trip">
+    <div class="card-show">
       <% if @costume.user == current_user %>
           <div class="edit">
-                <li class="pencil-item dropdown">
-                  <div class="pencil dropdown-toggle" id="penilDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-pencil-alt"></i>
-                  </div>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pencilDropdown">
-                    <ul>
-                      <li class="dropdown-item"><%= link_to "Modifier", edit_costume_path(@costume), class: "text-decoration-none"%></li>
-                      <li class="dropdown-item"><%= link_to "Supprimer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}%></li>
-                    </ul>
-                  </div>
-                </li>
+            <li class="pencil-item dropdown">
+              <div class="pencil dropdown-toggle" id="penilDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-pencil-alt"></i>
               </div>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="pencilDropdown">
+                <ul>
+                  <li class="dropdown-item"><%= link_to "Modifier", edit_costume_path(@costume), class: "text-decoration-none"%></li>
+                  <li class="dropdown-item"><%= link_to "Supprimer", costume_path(@costume), method: :delete, data: {confirm: "Etes-vous sûr de vouloir effacer ce costume?"}%></li>
+                </ul>
+              </div>
+            </li>
+          </div>
         <% end %>
       <% @costume.photos.each do |photo| %>
         <%= cl_image_tag photo.key %>
       <% end%>
-      <div class="card-trip-infos">
-          <h1><%= @costume.name %></h1>
-          <p><%= @costume.description %></p>
-          <h2 class="card-trip-pricing"><p id="price"><%= @costume.price %>€</p></h2>
+      <div class="card-body">
+        <h1><%= @costume.name %></h1>
+        <p><%= @costume.description %></p>
+        <h2 class="card-trip-pricing"><p id="price"><%= @costume.price %>€</p></h2>
       </div>
     </div>
 
