@@ -4,6 +4,7 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 102%;
 }
 
 .card-trip h1 {
@@ -52,8 +53,8 @@
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 8px;
-  top: -22px;
+  right: 12px;
+  bottom: 12px;
 }
 
 .avatar-bordered {
@@ -61,9 +62,6 @@
   height: 50px;
   border-radius: 50%;
   border: white 1px solid;
-  position: absolute;
-  right: 8px;
-  top: -25px;
 }
 
 @media (min-width: 992px) {
