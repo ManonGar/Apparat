@@ -14,7 +14,7 @@
         <%= link_to "Mon compte", dashboard_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <%= cl_image_tag @costume.user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if current_user.nil? %>
             <%= link_to "Connexion", user_session_path, class: "dropdown-item" %>
