@@ -51,7 +51,7 @@
         <% current_user.bookings.each do |booking| %>
           <% if booking.validation %>
             <div class="notification">
-              <%= booking.costume.user.photos.first.key%>
+              <%= booking.costume.user.photos.first%>
               <%= booking.costume.user.first_name %> 
             </div>
             <div class="notification-content">
