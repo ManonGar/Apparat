@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container-new">
-    <h3>Ajouter un nouveau costume</h3>
+    <h3>Modifier votre costume</h3>
 
     <%= simple_form_for(@costume) do |f| %>
       <%= f.input :name, label: 'Nom du costume'%>
@@ -8,7 +8,8 @@
       <%= f.input :year, label: 'Date du costume'%>
       <%= f.input :price, label: 'Prix de location'%>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-       <%= f.button :submit, "Ajouter", class: 'btn btn-ghost'%>
+      <%= f.button :submit, "Ajouter", class: 'btn btn-ghost'%>
     <% end %>
   </div>
 </div>
+
