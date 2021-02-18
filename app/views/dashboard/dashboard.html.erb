@@ -1,4 +1,5 @@
 <div class="container">
+
   <h3> Bienvenue <%= current_user.email %> 👋</h3>
   <p>N'hésites surtout pas à naviguer sur les différents onglets ci-dessous</p>
   <ol>
@@ -6,7 +7,6 @@
     <li><strong>Mes réservations confirmés:</strong> l'ensemble des costumes que tu as confirmé pour une location à venir</li>
     <li><strong>A confirmer:</strong> les costumes en attente de validation (dépêche toi avant que ton loueur ne change d'avis) </li>
   </ol>
-
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -45,22 +45,8 @@
 
           </div>
           <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-          <div class="container">
-              <% current_user.bookings.each do |booking| %>
-                <div class="notification">
-                <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg", class: "avatar-large"%>
-                  <div class="notification-content">
-                    <p> <small> <%= booking.costume.user.email %> </small></p>
-                    <p> <%= booking.costume.user.email %> aimerait louer votre <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.</p>
-                    <p>Souhaitez-vous accepter ou refuser sa demande?</p>
-                  </div>
-                  <div class="notification-actions">
-                  <%= link_to "✔️", "#", class: "btn btn-ghost" %>
-                  <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
-                  </div>
-                </div>
-                <% end %>
-          </div>
+            <%= render 'shared/notifications' %>
+    
 
           </div>
       </div>

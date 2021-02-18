@@ -12,4 +12,12 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     return true
   end
+
+  def update?
+    return true
+  end
+
+  def edit?
+    return true
+  end 
 end

@@ -7,7 +7,9 @@
       <%= f.input :description, as: :text %>
       <%= f.input :year, label: 'Date du costume'%>
       <%= f.input :price, label: 'Prix de location'%>
-      <%= f.input :category, :collection => ["Renaissance", "Antiquite & Moyen-Age", "XVIIesiecle", "XVIIIesiecle", "XIXesiecle", "XXesiecle", "Contemporain", "Uniformes"] %>
+      <%= f.input :category, label: 'Catégories possibles', :collection => 
+      ["Renaissance", "Antiquite & Moyen-Age", "XVIIesiecle", "XVIIIesiecle", "XIXesiecle", "XXesiecle", "Contemporain", "Uniformes"]
+      %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
        <%= f.button :submit, "Ajouter", class: 'btn btn-ghost'%>
     <% end %>
