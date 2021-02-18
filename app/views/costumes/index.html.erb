@@ -12,7 +12,7 @@
               <p><%=costume.category%><p>
               <h3><%= costume.price %>€</h3>
             </div>
-            <img src="https://www.vanityfair.fr/uploads/images/thumbs/201627/f0/marie_antoinette_slid_vf_5435.jpeg_north_375x310_transparent.jpg" class="card-trip-user avatar-bordered" />
+            <%= cl_image_tag costume.user.photos.first.key, class: "card-trip-user avatar-bordered"%>
           </div>
         </div>
       <% end %>

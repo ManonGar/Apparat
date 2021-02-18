@@ -51,7 +51,7 @@
         <% current_user.bookings.each do |booking| %>
           <% if booking.validation %>
             <div class="notification">
-              <%= booking.costume.user.photos.first%>
+              <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
               <%= booking.costume.user.first_name %>
             </div>
             <div class="notification-content">
@@ -75,7 +75,7 @@
               <% current_user.bookings.each do |booking| %>
                 <% if booking.validation == false %>
                   <div class="notification">
-                    <%= booking.costume.user.photos.first.key%>
+                    <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
                     <div class="notification-content">
                       <p> <small> <%= booking.costume.user.first_name %> </small></p>
                       <p> <%= booking.costume.user.first_name %> aimerait louer votre <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
