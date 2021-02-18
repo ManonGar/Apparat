@@ -34,38 +34,37 @@ puts "#{User.all.length} users created"
 
 puts 'Creating costumes'
 
-url = 'https://www.costumesdepoque.net/catalogue-costumes-civils'
-html_file = open(url).read
-html_doc = Nokogiri::HTML(html_file)
-html_doc.css('#TPASection_jsrook8y > div > div > div > div > section > div > ul > li').first(10).each do |element|
-  costume = Costume.new(
-    name: Faker::Music::Opera.bizet,
-    description: element.search('._3RqKm > h3').text,
-    price: element.search('._23ArP').text.to_i,
-    category: ["Renaissance", "Antiquite & Moyen-Age", "XVIIesiecle", "XVIIIesiecle", "XIXesiecle", "XXesiecle", "Contemporain", "Uniformes"].sample)
-  file = URI.open(element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i].delete_suffix('/'))
-  costume.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-  costume.user = @user1
-  costume.save
-end 
+# url = 'https://www.costumesdepoque.net/catalogue-costumes-civils'
+# html_file = open(url).read
+# html_doc = Nokogiri::HTML(html_file)
+# html_doc.css('#TPASection_jsrook8y > div > div > div > div > section > div > ul > li').first(10).each do |element|
+#   costume = Costume.new(
+#     name: Faker::Music::Opera.bizet,
+#     description: element.search('._3RqKm > h3').text,
+#     price: element.search('._23ArP').text.to_i,
+#     category: ["Renaissance", "Antiquite & Moyen-Age", "XVIIesiecle", "XVIIIesiecle", "XIXesiecle", "XXesiecle", "Contemporain", "Uniformes"].sample)
+#   file = URI.open(element.search("div[style*='background-image']")[0].to_s[/(https?:\/\/.*\.(?:png|jpg))/i].delete_suffix('/'))
+#   costume.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+#   costume.user = @user1
+#   costume.save
+# end
 
-=begin
+
 url = 'https://www.compagnie-du-costume.com/costumes/renaissance-xviie-siecle/'
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
 puts 'Creating costumes'
-html_doc.search('.rollover-zoom').each do |element|
+html_doc.search('.rollover-zoom').first(10).each do |element|
    costume = Costume.new(
     name: Faker::Music::Opera.bizet,
     description: element.attribute('title').to_s[/\s(.*)/i].lstrip,
     price: rand(100..1000),
     category: element.attribute('title').to_s.split.first)
-    file = URI.parse(element.attribute('href').to_s[/(https?:\/\/.*\.(?:png|jpg))/i].delete_suffix('/'))
+    file = URI.open(element.attribute('href').to_s[/(https?:\/\/.*\.(?:png|jpg))/i].delete_suffix('/'))
     costume.photos.attach(io: file, filename: 'costume.png', content_type: 'image/png')
-    costume.user = @user0
+    costume.user = @user1
     costume.save
 end
-=end
 
 puts "#{Costume.all.length} costumes created"
 
@@ -76,6 +75,6 @@ Costume.all.first(5).each do |costume|
   booking = Booking.create(beginning_date: begindate, ending_date: begindate + rand(3..7), user_id: @user2.id, costume_id: costume.id)
 end
 
-puts "#{Booking.all.length} bookings created" 
+puts "#{Booking.all.length} bookings created"
 
 puts 'Finished'
