@@ -10,7 +10,7 @@
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mes costumes 👔</a>
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mes costumes 👗</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mes réservations ✓</a>
@@ -76,12 +76,13 @@
                 <% if booking.validation == false %>
                   <div class="notification">
                     <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
+                    <p> <small> <%= booking.costume.user.first_name %> </small></p>
                     <div class="notification-content">
-                      <p> <small> <%= booking.costume.user.first_name %> </small></p>
                       <p> <%= booking.costume.user.first_name %> aimerait louer votre <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
                       </p>
-                      <p>Souhaitez-vous accepter ou refuser sa demande?</p>
-                    </div>
+                      <p>Souhaitez-vous accepter sa demande?</p>
+                    </div> 
+
                     <div class="notification-actions">
                     <%= link_to "✔️", edit_booking_path(booking), class: "btn btn-ghost" %>
                     <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
