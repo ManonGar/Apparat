@@ -15,8 +15,9 @@
 @import "pages/index";
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   &:hover {
-    text-decoration: none;
+    text-decoration: none !important;
+    color: $gold !important;
   }
 }
