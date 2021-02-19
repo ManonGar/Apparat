@@ -12,7 +12,7 @@
               <p><%=costume.category%><p>
               <h3><%= costume.price %>€</h3>
             </div>
-            <%= cl_image_tag costume.user.photos.first.key, class: "card-trip-user avatar-bordered"%>
+            <%= cl_image_tag costume.user.photos.first.key, class: "card-trip-user avatar"%>
           </div>
         </div>
       <% end %>
