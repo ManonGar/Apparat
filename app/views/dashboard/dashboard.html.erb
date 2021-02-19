@@ -1,100 +1,16 @@
 <div class="container">
 
-  <h3> Bienvenue <%= current_user.first_name %> 👋</h3>
-  <p>N'hésites surtout pas à naviguer sur les différents onglets ci-dessous</p>
-  <ol>
-    <li><strong>Mes costumes:</strong> l'ensemble des costumes que tu as pu mettre en location sur Apparat</li>
-    <li><strong>Mes réservations confirmés:</strong> l'ensemble des costumes que tu as confirmé pour une location à venir</li>
-    <li><strong>A confirmer:</strong> les costumes en attente de validation (dépêche toi avant que ton loueur ne change d'avis) </li>
-  </ol>
+  <h1> Bienvenue <%=current_user.first_name%></h1>
 
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Mes costumes 👗</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mes réservations ✓</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mes réservations en attente 👀</a>
-        </li>
-      </ul>
-
-        <div class="tab-content" id="myTabContent">
-
-
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container">
-                <div class="cards">
-                  <% current_user.costumes.each do |costume| %>
-                    <%= link_to costume_path(costume) do %>
-                      <% if costume.photos.attached? %>
-                      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photos.first.key%>')">
-                          <%=costume.name%>
-                      </div>
-                        <% else %>
-                      <div>
-                      <%= %>
-                      <%= costume.name%>
-                      </div>
-                    <% end %>
-                      <% end %>
-                  <% end %>
-                </div>
-            </div>
-          </div>
-
-
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-        <div class='container'>
-        <% current_user.bookings.each do |booking| %>
-          <% if booking.validation %>
-            <div class="notification">
-              <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
-              <%= booking.costume.user.first_name %>
-            </div>
-            <div class="notification-content">
-              <p> <%= booking.costume.user.first_name %> a réservé votre costume <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
-              </p>
-            </div>
-          <% else %>
-          <div>
-        </div>
-        <% end %>
-        <% end %>
-
-        </div>
-
+    <div class="container">
+      <div class="card-dashboard">
+        <h3> Mes informations </h3>
+        <p> Mes costumes:  <%=current_user.costumes.length %></p>
+        <p> Mes locations: <%= @sum %> </p>
+        <p> Mes réservations: <%=current_user.bookings.length %> </p>
       </div>
+    </div>
 
-
-          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
-            <div class='container'>
-              <% current_user.bookings.each do |booking| %>
-                <% if booking.validation == false %>
-                  <div class="notification">
-                    <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
-                    <p> <small> <%= booking.costume.user.first_name %> </small></p>
-                    <div class="notification-content">
-                      <p> <%= booking.costume.user.first_name %> aimerait louer votre <%=booking.costume.name%> du <%=booking.beginning_date%> au <%=booking.ending_date%>.
-                      </p>
-                      <p>Souhaitez-vous accepter sa demande?</p>
-                    </div>
-
-                    <div class="notification-actions">
-                    <%= link_to "✔️", edit_booking_path(booking), class: "btn btn-ghost" %>
-                    <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-
-          </div>
+    <%= render 'tab' %>
 
 </div>
-</div>
-
-

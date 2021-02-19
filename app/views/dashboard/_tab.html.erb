@@ -1,0 +1,83 @@
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"> Mes costumes
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" id="reservations-tab" data-toggle="tab" href="#reservations" role="tab" aria-controls="reservations" aria-selected="false"> Mes locations
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"> Mes réservations
+    </a>
+  </li>
+
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="container">
+      <div class="cards">
+        <% current_user.costumes.each do |costume| %>
+          <%= link_to costume_path(costume) do %>
+            <% if costume.photos.attached? %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photos.first.key%>')">
+                <%=costume.name%>
+                </div>
+            <% else %>
+              <%= costume.name%>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
+    <div class="container">
+      <div class="notification">
+          <% current_user.costumes.each do |costume| %>
+            <%costume.bookings.each do |booking| %>
+              <% if booking.validation == false %>
+                <div class="notification">
+                  <%= cl_image_tag booking.user.photos.first.key, class: "avatar-large"%>
+                </div>
+                <div class="notification-content">
+                <p> <%= booking.user.first_name %> aimerait louer votre <strong> <%=costume.name%> </strong> du <%=booking.beginning_date%> au <%=booking.ending_date%>. </p>
+                <p>Souhaitez-vous accepter sa demande?</p>
+                </div> 
+                <div class="notification-actions">
+                <%= link_to "✔️", edit_booking_path(booking), class: "btn btn-ghost" %>
+                <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
+                </div>
+              <% else %>
+                <%= cl_image_tag booking.user.photos.first.key, class: "avatar-large"%>
+                <p> Votre costume <strong> <%=costume.name%> </strong> a été réservé par <%=booking.user.first_name%> du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> </p> 
+              <% end %>      
+          <% end %>
+        <% end %>
+       </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class='container'>
+    <% current_user.bookings.each do |booking| %>
+        <% if booking.validation == false %>
+          <div class="notification">
+            <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
+            <p> Votre réservation du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> pour le costume <strong> <%=booking.costume.name%> </strong> n'a pas encore été acceptée. </p>
+          </div> 
+        <% else %>
+          <div class="notification">
+            <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
+            <p> Votre réservation du costume <strong> <%=booking.costume.name%> </strong> du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> est confirmée.</p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+</div>
