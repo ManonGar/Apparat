@@ -63,3 +63,29 @@
   letter-spacing: 2px;
 }
 
+.w-100 {
+  width: 100% !important;
+  object-position: 0px -200px;
+}
+
+.arrow::after {
+  content: ' →';
+}
+
+.arrow:hover::after {
+  color: $gold;
+  margin-right: 8px;
+}
+
+a.arrow {
+  font-size: 20px;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 2px;
+  font-weight: bold;
+  background: $gold;
+  transition: background 0.3s ease;
+  &:hover {
+    background: black;
+  }
+}
