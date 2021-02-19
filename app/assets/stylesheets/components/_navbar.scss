@@ -56,3 +56,26 @@ p {
   color: black;
   font-size: 18px;
 }
+
+.searchbar {
+    justify-content: center;
+    width: 200px;
+    display:flex;
+}
+.rounded {
+    border-radius: 2px !important;
+}
+
+.right-elements {
+  display:flex;
+}
+
+input#query {
+  font-weight: lighter;
+}
+
+#search-addon {
+  height: calc(1.5em + 0.75rem + 2px);
+}
+
+
