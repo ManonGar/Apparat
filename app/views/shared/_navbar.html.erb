@@ -37,7 +37,7 @@
               <% if policy(Costume).create? %>
                 <%= link_to "Ajouter un costume", new_costume_path, class: "dropdown-item" %>
               <% end %>
-              <%= link_to "Mes costumes", costumes_path, class: "dropdown-item" %>
+              <%= link_to "Mes costumes", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Mes réservations", dashboard_path, class: "dropdown-item" %>
               <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% end %>
