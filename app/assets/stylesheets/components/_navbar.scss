@@ -58,16 +58,22 @@ p {
 }
 
 .searchbar {
-    justify-content: center;
-    width: 200px;
-    display:flex;
+  justify-content: center;
+  width: 200px;
+  display:flex;
 }
 .rounded {
-    border-radius: 2px !important;
+  border-radius: 2px !important;
 }
 
 .right-elements {
-  display:flex;
+  display: flex;
+  align-items: center;
+}
+
+.my_account {
+  display: flex;
+  align-items: center;
 }
 
 input#query {
@@ -78,4 +84,17 @@ input#query {
   height: calc(1.5em + 0.75rem + 2px);
 }
 
+.input.border-0 {
+  background-color: transparent;
+}
 
+#navbar-search-icon {
+  color: $gold;
+}
+
+#form-rounded-navbar-search {
+  height: 22px;
+  margin-top: 7px;
+  margin-right: 5px;
+  border: 0.5px solid #E0C36D
+}
