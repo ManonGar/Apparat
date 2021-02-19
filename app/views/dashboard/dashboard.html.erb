@@ -1,13 +1,13 @@
 <div class="container">
 
-  <h1> Bienvenue <%=current_user.first_name%></h1>
+  <h1> Bienvenue <%=current_user.first_name%> 👑</h1>
 
     <div class="container">
       <div class="card-dashboard">
-        <h3> Mes informations </h3>
-        <p> Mes costumes:  <%=current_user.costumes.length %></p>
-        <p> Mes locations: <%= @sum %> </p>
-        <p> Mes réservations: <%=current_user.bookings.length %> </p>
+        <h2> Mes informations </h2>
+        <p> <strong> Mes costumes: </strong>  <%=current_user.costumes.length %></p>
+        <p> <strong> Mes locations: </strong> <%= @sum %> </p>
+        <p> <strong> Mes réservations: </strong> <%=current_user.bookings.length %> </p>
       </div>
     </div>
 
