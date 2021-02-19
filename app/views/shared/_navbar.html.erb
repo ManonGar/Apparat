@@ -17,7 +17,8 @@
         <% if current_user  %>
         <%= cl_image_tag current_user.photos.first.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
         <% else %>
-        <%= cl_image_tag 'https://res.cloudinary.com/dyzougzua/image/upload/v1613668303/4ughjhe1v3b4ol0i96a3ns7gycfe.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+        <%#= cl_image_tag 'https://res.cloudinary.com/dyzougzua/image/upload/v1613668303/4ughjhe1v3b4ol0i96a3ns7gycfe.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://cdn.onlinewebfonts.com/svg/img_258083.png" />
         <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if current_user.nil? %>
