@@ -10,12 +10,14 @@
   </button>
 
   <div class="right-elements">
+    <%= form_tag costumes_path, method: :get do %>
     <div class="searchbar rounded">
-        <%= text_field_tag :query, params[:query], class: "form-control rounded", placeholder: "Recherche" %>
-          <%= button_tag :submit, class: "input-group-text border-0", id: "search-addon" do %>
-          <i class="fas fa-search"></i>
+      <%= text_field_tag :query, params[:query], class: "form-control rounded", placeholder: "Recherche" %>
+        <%= button_tag :submit, class: "input-group-text border-0", id: "search-addon" do %>
+        <i class="fas fa-search"></i>
         <% end %>
     </div>
+    <% end %>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
