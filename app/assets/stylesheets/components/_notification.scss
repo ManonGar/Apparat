@@ -1,9 +1,9 @@
 .notification {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  margin: 16px auto;
   background: white;
-  padding: 8px 16px;
+  padding: 16px 16px;
   border: 1px solid rgb(235,235,235);
 }
 
@@ -13,15 +13,18 @@
 }
 
 .notification p {
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.4;
   color: black;
+  font-size: 16px;
 }
 
 .notification small {
   color: #999999;
   font-weight: bold;
+  margin: 0 auto;
 }
+
 .notification .notification-actions {
   opacity: 0;
   display: flex;

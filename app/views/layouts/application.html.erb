@@ -12,13 +12,20 @@
   </head>
 
   <body>
-    <header>
     <%= render 'shared/navbar' %>
-    </header>
     <%= render 'shared/flashes' %>
-    <%= yield %>
-    <footer>
+    <div class="wy">
+      <%= yield %>
+    </div>
+
     <%= render 'shared/footer' %>
-    </footer>
   </body>
 </html>
+
+
+<style>
+
+  .wy {
+    padding-bottom: 120px;
+  }
+</style>

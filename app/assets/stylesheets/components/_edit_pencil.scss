@@ -9,7 +9,11 @@ li.pencil-item.dropdown {
   display: none;
 }
 
-.fa-pencil-alt:hover {
+.fa-ellipsis-h {
+  color: white;
+}
+
+.fa-ellipsis-h:hover {
   cursor: pointer;
 }
 
@@ -19,9 +23,10 @@ li.pencil-item.dropdown {
   font-family: 'Open Sans';
   font-size: 16px;
   &:hover{
-    color: white;
+    color: white!important;
   }
 }
+
 
 ul {
   padding: 0;

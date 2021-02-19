@@ -2,7 +2,7 @@
   <div class="container-new">
     <h3>Ajouter un nouveau costume</h3>
 
-    <%= simple_form_for(@costume) do |f| %>
+    <%= simple_form_for((@costume), remote: true) do |f| %>
       <%= f.input :name, label: 'Nom du costume'%>
       <%= f.input :description, as: :text %>
       <%= f.input :year, label: 'Date du costume'%>
