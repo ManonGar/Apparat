@@ -28,4 +28,13 @@ h3 {
   border: 1px solid lightgrey;
   padding-left: 32px;
   padding-right: 32px;
+  height: fit-content;
+  padding-bottom: 24px;
+}
+
+.image {
+  background-size: cover;
+  background-position-y: center;
+  height: 60vh;
+  width: 80vh;
 }
