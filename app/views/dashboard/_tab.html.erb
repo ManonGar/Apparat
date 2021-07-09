@@ -18,7 +18,7 @@
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="container">
+    <div class="container-tab">
       <div class="cards">
         <% current_user.costumes.each do |costume| %>
           <%= link_to costume_path(costume) do %>
@@ -37,47 +37,46 @@
 
   
   <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
-    <div class="container">
-      <div class="notification">
+    <div class="container-tab">
           <% current_user.costumes.each do |costume| %>
             <%costume.bookings.each do |booking| %>
               <% if booking.validation == false %>
                 <div class="notification">
-                  <%= cl_image_tag booking.user.photos.first.key, class: "avatar-large"%>
+                      <%= cl_image_tag booking.user.photos.first.key, class: "avatar-large"%>
+                      <p> <%= booking.user.first_name %> aimerait louer votre <strong> <%=costume.name%> </strong> du <%=booking.beginning_date%> au <%=booking.ending_date%>. </p>
+                      <p>Souhaitez-vous accepter sa demande?</p>
+                  <div class="notification-actions">
+                    <%= link_to "✔️", edit_booking_path(booking) %>
+                    <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"} %>
+                  </div>
                 </div>
-                <div class="notification-content">
-                <p> <%= booking.user.first_name %> aimerait louer votre <strong> <%=costume.name%> </strong> du <%=booking.beginning_date%> au <%=booking.ending_date%>. </p>
-                <p>Souhaitez-vous accepter sa demande?</p>
-                </div> 
-                <div class="notification-actions">
-                <%= link_to "✔️", edit_booking_path(booking), class: "btn btn-ghost" %>
-                <%= link_to "❌", booking_path(booking), method: :delete, data: {confirm: "Etes-vous sûr de vouloir supprimer cette réservation?"}, class: "btn btn-ghost" %>
-                </div>
-              <% else %>
-                <%= cl_image_tag booking.user.photos.first.key, class: "avatar-large"%>
-                <p> Votre costume <strong> <%=costume.name%> </strong> a été réservé par <%=booking.user.first_name%> du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> </p> 
-              <% end %>      
+                  <% else %>
+                <div class="notification">
+                      <%= cl_image_tag booking.user.photos.first.key, class: "avatar-large"%>
+                      <p> Votre costume <strong> <%=costume.name%> </strong> a été réservé par <%=booking.user.first_name%> du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> </p>
+                </div>  
+                  <% end %>       
           <% end %>
-        <% end %>
-       </div>
+        <% end %> 
     </div>
   </div>
 
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class='container'>
-    <% current_user.bookings.each do |booking| %>
+    <div class='container-tab'>
+      <% current_user.bookings.each do |booking| %>
         <% if booking.validation == false %>
           <div class="notification">
             <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
             <p> Votre réservation du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> pour le costume <strong> <%=booking.costume.name%> </strong> n'a pas encore été acceptée. </p>
-          </div> 
+          </div>
         <% else %>
           <div class="notification">
             <%= cl_image_tag booking.costume.user.photos.first.key, class: "avatar-large"%>
             <p> Votre réservation du costume <strong> <%=booking.costume.name%> </strong> du <strong> <%=booking.beginning_date%> </strong> au <strong> <%=booking.ending_date%> </strong> est confirmée.</p>
           </div>
         <% end %>
-      <% end %>
+      <% end %> 
     </div>
+  </div>
 
 </div>
